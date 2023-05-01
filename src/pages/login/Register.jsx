@@ -10,12 +10,13 @@ const Register = () => {
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
+    // const name = form.name.value;
     // const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+    const from = location.state?.from?.pathname || "/";
 
-    console.log(name, email, password);
+    console.log(email, password);
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
@@ -36,7 +37,7 @@ const Register = () => {
         onSubmit={handleRegister}
         class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
       >
-        <div class="mb-4">
+        {/* <div class="mb-4">
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
             for="username"
@@ -50,7 +51,7 @@ const Register = () => {
             placeholder="Username"
             required
           />
-        </div>
+        </div> */}
 
         <div class="mb-6">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
@@ -97,6 +98,12 @@ const Register = () => {
             Forgot Password?
           </a>
         </div>
+        <p>
+          Have an account already?{" "}
+          <Link className="link" to="/login">
+            Sign In
+          </Link>
+        </p>
       </form>
 
       <p class="text-center text-gray-500 text-xs">

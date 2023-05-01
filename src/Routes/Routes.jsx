@@ -32,20 +32,18 @@ const router = createBrowserRouter([
       {
         path: "/destination",
         element: <Destination></Destination>,
-        children: [
-          {
-            path: ":id",
-            element: (
-              <PrivateRoute>
-                <Booking></Booking>
-              </PrivateRoute>
-            ),
-            loader: ({ params }) =>
-              fetch(`http://localhost:5000/destination/${params.id}`)
-                .then((res) => res.json())
-                .catch((error) => console.error(error)),
-          },
-        ],
+      },
+      {
+        path: "destination/:id",
+        element: (
+          <PrivateRoute>
+            <Booking></Booking>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/destination/${params.id}`)
+            .then((res) => res.json())
+            .catch((error) => console.error(error)),
       },
     ],
   },

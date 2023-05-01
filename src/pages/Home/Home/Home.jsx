@@ -83,8 +83,8 @@ const Home = () => {
         {/* Details */}
         <div className="text-white ">
           <p className="text-4xl font-bold">Explore All Over Bangladesh</p>
-          <Link>
-            <button className="btn-outlined">Book Now</button>
+          <Link to="/destination">
+            <button className="btn-outlined bg-yellow-400">Book Now</button>
           </Link>
         </div>
       </div>

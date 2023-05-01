@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-white">
+    <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 text-white">
       {/* Navbar */}
       <div className="flex justify-between items-center">
         <div>
@@ -18,22 +18,22 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex justify-around gap-x-3 text-xl">
           <NavLink
-            to="/statistics"
+            to="/destination"
             className={({ isActive }) => (isActive ? "active" : "default")}
           >
-            Statistics
+            Destination
           </NavLink>
           <NavLink
             to="/appliedjobs"
             className={({ isActive }) => (isActive ? "active" : "default")}
           >
-            Applied Jobs
+            Blog
           </NavLink>
           <Link
             to="/blog"
             className={({ isActive }) => (isActive ? "active" : "default")}
           >
-            Blog
+            Contact
           </Link>
         </div>
         <div className="hidden md:inline-block text-xl">

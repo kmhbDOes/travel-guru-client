@@ -1,9 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log("login page location", location);
+  const from = location.state?.from?.pathname || "/category/0";
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div class="w-full max-w-xs mx-auto">
-      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form
+        onSubmit={handleLogin}
+        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      >
         <div class="mb-4">
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
@@ -14,6 +42,7 @@ const Login = () => {
           <input
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="username"
+            name="username"
             type="text"
             placeholder="Username"
           />
@@ -29,6 +58,7 @@ const Login = () => {
             class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
             id="password"
             type="password"
+            name="password"
             placeholder="******************"
           />
           <p class="text-red-500 text-xs italic">Please choose a password.</p>
@@ -47,6 +77,12 @@ const Login = () => {
             Forgot Password?
           </a>
         </div>
+        <p>
+          Don't have an account?{" "}
+          <Link className="link font-bold" to="/register">
+            Sign Up Now
+          </Link>
+        </p>
       </form>
       <p class="text-center text-gray-500 text-xs">
         &copy;2020 Acme Corp. All rights reserved.

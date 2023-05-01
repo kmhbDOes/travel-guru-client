@@ -37,9 +37,11 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="hidden md:inline-block text-xl">
-          <button className="btn-primary bg-yellow-400 rounded-lg">
-            Book Now
-          </button>
+          <NavLink to="/login">
+            <button className="btn-outlined bg-yellow-400 rounded-lg">
+              Login
+            </button>
+          </NavLink>
         </div>
 
         <div className="lg:hidden">

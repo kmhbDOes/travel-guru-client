@@ -10,11 +10,27 @@ const Destination = () => {
       .catch((error) => console.error(error));
   }, []);
   return (
-    <div className="text-white">
+    <div className="text-black">
       {destinations.map((destination) => (
         <p key={destination.id}>
-          {" "}
-          <li>{destination.title}</li>
+          <div>
+            <div className="card w-96 bg-base-100 shadow-xl">
+              <figure>
+                <img
+                  className="w-64 h-72"
+                  src={destination.photo}
+                  alt="image"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">{destination.title}</h2>
+                <p>{destination.details}</p>
+                <div className="card-actions justify-end">
+                  <button className="btn btn-primary">Book Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </p>
       ))}
     </div>

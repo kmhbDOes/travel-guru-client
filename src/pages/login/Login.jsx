@@ -7,7 +7,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   console.log("login page location", location);
-  const from = location.state?.from?.pathname || "/category/0";
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -41,10 +41,10 @@ const Login = () => {
           </label>
           <input
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="username"
-            name="username"
+            id="email"
+            name="email"
             type="text"
-            placeholder="Username"
+            placeholder="email"
           />
         </div>
         <div class="mb-6">
@@ -66,7 +66,7 @@ const Login = () => {
         <div class="flex items-center justify-between">
           <button
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="button"
+            type="submit"
           >
             Sign In
           </button>
@@ -78,7 +78,7 @@ const Login = () => {
           </a>
         </div>
         <p>
-          Don't have an account?{" "}
+          Don't have an account?
           <Link className="link font-bold" to="/register">
             Sign Up Now
           </Link>

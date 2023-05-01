@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Destination = () => {
   const [destinations, setDestination] = useState([]);
@@ -26,7 +27,9 @@ const Destination = () => {
                 <h2 className="card-title">{destination.title}</h2>
                 <p>{destination.details}</p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Book Now</button>
+                  <Link to={`/destination/${destination.id}`}>
+                    <button className="btn btn-primary">Book Now</button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -84,7 +84,7 @@ const Home = () => {
         <div className="text-white ">
           <p className="text-4xl font-bold">Explore All Over Bangladesh</p>
           <Link to="/destination">
-            <button className="btn-outlined bg-yellow-400">Book Now</button>
+            <button className="btn-outlined bg-yellow-400">See Places</button>
           </Link>
         </div>
       </div>

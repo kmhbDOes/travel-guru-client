@@ -1,11 +1,21 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import Destination from "../Destination/Destination";
 
 const Booking = () => {
   const booking = useLoaderData();
-  const { id, title, details } = booking;
-  return <div>{details}</div>;
+  console.log(booking);
+  const { title, details } = booking;
+  return (
+    <div>
+      <div>
+        <div>
+          <p>{title}</p>
+          <p>{details}</p>
+        </div>
+        <div>Booking</div>
+      </div>
+    </div>
+  );
 };
 
 export default Booking;
